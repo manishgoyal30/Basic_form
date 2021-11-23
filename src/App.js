@@ -211,7 +211,7 @@
 
 
 //*************Updated code*************/
-//*************tutotial 39**************/
+//*************tutotial 39/40**************/
 
 import React, { useState } from "react";
 
@@ -221,6 +221,7 @@ const App = () =>{
     fname: "",
     lname: "",
     email: "",
+    phone: "",
   });
 
   const inputEvent = (event) => {  //targeting the onChanhge in the input tag after tickling this, it will ber in function 
@@ -242,12 +243,14 @@ const App = () =>{
         fname: value,
         lname: preValue.lname,
         email: preValue.email,
+        phone: preValue.phone,
       };               
       } else if(name === "lName") {
         return{
           fname: preValue.fname,
           lname: value,
           email: preValue.email,
+          phone: preValue.phone,
         }; 
       } 
       else if(name === "email") {
@@ -255,9 +258,18 @@ const App = () =>{
           fname: preValue.fname,
           lname: preValue.lname,
           email: value,
+          phone: preValue.phone,
         }; 
-      }             
-    });   
+      }  
+      
+      else if(name === "mobile") {
+        return{
+          fname: preValue.fname,
+          lname: preValue.lname,
+          email: preValue.email,
+          phone: value,
+        };            
+      }});   
    
   };    
 
@@ -274,6 +286,7 @@ return(
 <div>
   <h1>Hello {fullName.fname} {fullName.lname} </h1> 
   <h3>{fullName.email}</h3> 
+  <h3> {fullName.phone}</h3>
 
   <input
    type="text" 
@@ -300,6 +313,14 @@ return(
    value={fullName.email}  
    />
 
+<input
+   type="number"  
+   placeholder="Enter the Phone Number"   
+   name ="mobile"
+   onChange = {inputEvent} 
+   value={fullName.phone}  
+   />  
+
 
 
   <button type="submit">Submit </button>
@@ -313,3 +334,8 @@ return(
 export default App;
 
 
+
+//ALL done for the Forms, Added the First Name, Last Name, Phone Number, Email and averything
+//All chllanges done for the form 
+
+/*****************************************************************************************************************************************/
