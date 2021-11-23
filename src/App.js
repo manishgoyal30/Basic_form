@@ -223,21 +223,19 @@ const App = () =>{
     email: "",
   });
 
-  const inputEvent = (event) => {
-    console.log(event.target.value);  
-    console.log(event.target.name);
+  const inputEvent = (event) => {  //targeting the onChanhge in the input tag after tickling this, it will ber in function 
+    console.log(event.target.value);   //tageting the value 
+    console.log(event.target.name);    //targeting the name
     
 
     // will target the tags in the input
 
+
     // const value = event.target.value;
     // const name = event.target.name;
+    const {value, name}= event.target;    
 
-
-    const {value, name}= event.target;
-    
-
-    setFullName((preValue) => {
+    setFullName((preValue) => {     //updating the initial hook value 
       // console.log(preValue);
       if(name === "fName") {
       return{
@@ -263,7 +261,8 @@ const App = () =>{
    
   };    
 
-  const onSubmit = (event) =>{
+  //for the alert
+  const onSubmit = (event) =>{  
     event.preventDefault(); 
     alert("Form Submitted");
   };  
@@ -280,8 +279,8 @@ return(
    type="text" 
    placeholder="Enter Your First Name" 
    name="fName"
-   onChange={inputEvent}  
-   value={fullName.fname} 
+   onChange={inputEvent}   //calling the inputEvent function
+   value={fullName.fname}  //hooks value
    />
 <br/>
 
@@ -300,6 +299,9 @@ return(
    onChange = {inputEvent} 
    value={fullName.email}  
    />
+
+
+
   <button type="submit">Submit </button>
   </div>
   </form>
