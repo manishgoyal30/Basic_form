@@ -213,6 +213,140 @@
 //*************Updated code*************/
 //*************tutotial 39/40**************/
 
+// import React, { useState } from "react";
+
+
+// const App = () =>{
+//   const [fullName, setFullName] = useState({
+//     fname: "",
+//     lname: "",
+//     email: "",
+//     phone: "",
+//   });
+
+//   const inputEvent = (event) => {  //targeting the onChanhge in the input tag after tickling this, it will ber in function 
+//     console.log(event.target.value);   //tageting the value 
+//     console.log(event.target.name);    //targeting the name
+    
+
+//     // will target the tags in the input
+
+
+//     // const value = event.target.value;
+//     // const name = event.target.name;
+//     const {value, name}= event.target;    
+
+//     setFullName((preValue) => {     //updating the initial hook value 
+//       // console.log(preValue);
+//       if(name === "fName") {
+//       return{
+//         fname: value,
+//         lname: preValue.lname,
+//         email: preValue.email,
+//         phone: preValue.phone,
+//       };               
+//       } else if(name === "lName") {
+//         return{
+//           fname: preValue.fname,
+//           lname: value,
+//           email: preValue.email,
+//           phone: preValue.phone,
+//         }; 
+//       } 
+//       else if(name === "email") {
+//         return{
+//           fname: preValue.fname,
+//           lname: preValue.lname,
+//           email: value,
+//           phone: preValue.phone,
+//         }; 
+//       }  
+      
+//       else if(name === "mobile") {
+//         return{
+//           fname: preValue.fname,
+//           lname: preValue.lname,
+//           email: preValue.email,
+//           phone: value,
+//         };            
+//       }});   
+   
+//   };    
+
+//   //for the alert
+//   const onSubmit = (event) =>{  
+//     event.preventDefault(); 
+//     alert("Form Submitted");
+//   };  
+
+
+// return(
+// <>
+// <form onSubmit={onSubmit}> 
+// <div>
+//   <h1>Hello {fullName.fname} {fullName.lname} </h1> 
+//   <h3>{fullName.email}</h3> 
+//   <h3> {fullName.phone}</h3>
+
+//   <input
+//    type="text" 
+//    placeholder="Enter Your First Name" 
+//    name="fName"
+//    onChange={inputEvent}   //calling the inputEvent function
+//    value={fullName.fname}  //hooks value
+//    />
+// <br/>
+
+// <input
+//    type="text"  
+//    placeholder="Enter the Last Name"   
+//    name ="lName"
+//    onChange = {inputEvent} 
+//    value={fullName.lname}  
+//    />
+
+// <input
+//    type="email"  
+//    placeholder="Enter the Email"   
+//    name ="email"
+//    onChange = {inputEvent} 
+//    value={fullName.email}  
+//    />
+
+// <input
+//    type="number"  
+//    placeholder="Enter the Phone Number"   
+//    name ="mobile"
+//    onChange = {inputEvent} 
+//    value={fullName.phone}  
+//    />  
+
+
+
+//   <button type="submit">Submit </button>
+//   </div>
+//   </form>
+//   </>
+// );
+
+
+// };
+// export default App;
+
+
+
+//ALL done for the Forms, Added the First Name, Last Name, Phone Number, Email and averything
+//All chllanges done for the form 
+
+/*****************************************************************************************************************************************/
+
+
+
+
+
+//********************Spread Operator***********************/
+/*************Tutorial 42***************/
+
 import React, { useState } from "react";
 
 
@@ -222,58 +356,25 @@ const App = () =>{
     lname: "",
     email: "",
     phone: "",
+    qua: "",
   });
 
-  const inputEvent = (event) => {  //targeting the onChanhge in the input tag after tickling this, it will ber in function 
-    console.log(event.target.value);   //tageting the value 
-    console.log(event.target.name);    //targeting the name
-    
+  const inputEvent = (event) => {  
+    console.log(event.target.value);   
+    console.log(event.target.name);    
 
-    // will target the tags in the input
-
-
-    // const value = event.target.value;
-    // const name = event.target.name;
     const {value, name}= event.target;    
 
-    setFullName((preValue) => {     //updating the initial hook value 
-      // console.log(preValue);
-      if(name === "fName") {
-      return{
-        fname: value,
-        lname: preValue.lname,
-        email: preValue.email,
-        phone: preValue.phone,
-      };               
-      } else if(name === "lName") {
-        return{
-          fname: preValue.fname,
-          lname: value,
-          email: preValue.email,
-          phone: preValue.phone,
-        }; 
-      } 
-      else if(name === "email") {
-        return{
-          fname: preValue.fname,
-          lname: preValue.lname,
-          email: value,
-          phone: preValue.phone,
-        }; 
-      }  
-      
-      else if(name === "mobile") {
-        return{
-          fname: preValue.fname,
-          lname: preValue.lname,
-          email: preValue.email,
-          phone: value,
-        };            
-      }});   
+    setFullName((preValue) => {
+       console.log(preValue);
+       return {
+         ...preValue,
+         [name]: value,
+       }      
+    });   
    
   };    
 
-  //for the alert
   const onSubmit = (event) =>{  
     event.preventDefault(); 
     alert("Form Submitted");
@@ -287,20 +388,21 @@ return(
   <h1>Hello {fullName.fname} {fullName.lname} </h1> 
   <h3>{fullName.email}</h3> 
   <h3> {fullName.phone}</h3>
+  <h3>{fullName.qua}</h3>
 
   <input
    type="text" 
    placeholder="Enter Your First Name" 
-   name="fName"
-   onChange={inputEvent}   //calling the inputEvent function
-   value={fullName.fname}  //hooks value
+   name="fname"
+   onChange={inputEvent}   
+   value={fullName.fname} 
    />
 <br/>
 
 <input
    type="text"  
    placeholder="Enter the Last Name"   
-   name ="lName"
+   name ="lname"
    onChange = {inputEvent} 
    value={fullName.lname}  
    />
@@ -316,9 +418,17 @@ return(
 <input
    type="number"  
    placeholder="Enter the Phone Number"   
-   name ="mobile"
+   name ="phone"
    onChange = {inputEvent} 
    value={fullName.phone}  
+   />  
+
+<input
+   type="text"  
+   placeholder="Enter the Qualification"   
+   name ="qua"
+   onChange = {inputEvent} 
+   value={fullName.qua}  
    />  
 
 
@@ -332,10 +442,3 @@ return(
 
 };
 export default App;
-
-
-
-//ALL done for the Forms, Added the First Name, Last Name, Phone Number, Email and averything
-//All chllanges done for the form 
-
-/*****************************************************************************************************************************************/
